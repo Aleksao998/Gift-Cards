@@ -1,12 +1,12 @@
 import React from "react";
 import {Router, Route, Switch, Link, NavLink} from "react-router-dom";
-import RegistrationPage from "../registrationPage";
-import LoginPage from "../loginPage";
+import RegistrationPage from "./registrationPage";
+import LoginPage from "./loginPage";
 import createHistory from "history/createBrowserHistory"
-import Dashboard from "../dashboardPage";
-import DodajVaucerPage from "../dodajVaucerPage"
-import IzvestajPage from "../izvestajPage"
-import fire from "../../firebase/firebase"
+import Dashboard from "./dashboardPage";
+import DodajVaucerPage from "./dodajVaucerPage"
+import IzvestajPage from "./izvestajPage"
+import fire from "../firebase/firebase"
 
 
 
