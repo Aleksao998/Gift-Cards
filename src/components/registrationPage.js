@@ -21,7 +21,7 @@ class RegistrationPage  extends React.Component{
         if(this.state.password == this.state.confirmPassword){
             this.setState ({ errorMsg: "" })
             fire.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then((u)=>{
-                this.props.history.push("/dashboard");
+                this.props.history.push("/");
              }).catch((error)=> {
                  console.log(error);
              });

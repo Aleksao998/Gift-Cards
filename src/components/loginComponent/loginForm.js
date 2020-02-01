@@ -24,7 +24,7 @@ class LoginForm extends React.Component{
         e.preventDefault();
        
         fire.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then((u)=>{
-          this.props.history.push("/dashboard");
+          this.props.history.push("/");
         }).catch((error)=> {
             console.log(error);
         });

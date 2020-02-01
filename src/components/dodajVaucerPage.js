@@ -51,15 +51,15 @@ class DodajVaucerPage  extends React.Component{
     
     addCoupon = () => {
         
-        for (var i = 0; i < this.state.number; i++) {
-            var vaucerid=0;  
-            var password = generator.generate({
+        for (let i = 0; i < this.state.number; i++) {
+            let vaucerid=0;  
+            let password = generator.generate({
                 length: 10,
                 numbers: true
             });
-            var condition=false;
+            let condition=false;
             const db = fire.firestore();
-            var docRef = db.collection("NeaktivniVauceri").doc(password);
+            let docRef = db.collection("NeaktivniVauceri").doc(password);
             docRef.get().then(function(doc) {  
                 if (doc.exists) {
                     condition=true;
@@ -76,7 +76,7 @@ class DodajVaucerPage  extends React.Component{
                     password: password                    
                 })
                 .then(function() {
-                    var dataItem = {
+                    let dataItem = {
                         id:this.state.index++,
                         vaucerId:password,
                    
@@ -102,14 +102,14 @@ class DodajVaucerPage  extends React.Component{
         } 
     };
     getAllVaucer(){
-        var vaucerListee = [];
+        let vaucerListee = [];
         this.state.index=0;
         this.state.vaucerLista= [];
         const db = fire.firestore();
         db.collection("NeaktivniVauceri").get().then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
                 
-                var dataItem = {
+                let dataItem = {
                     id:this.state.index++,
                     vaucerId:doc.id,
      
@@ -131,8 +131,8 @@ class DodajVaucerPage  extends React.Component{
         }).catch(function(error) {
             console.error("Error removing document: ", error);
         });
-        var index=-1;
-        for(var i = 0; i < this.state.vaucerLista.length; i++) {
+        let index=-1;
+        for(let i = 0; i < this.state.vaucerLista.length; i++) {
             if(this.state.vaucerLista[i]['vaucerId'] === rowData.vaucerId) {
                 index = i;
                 break;
@@ -147,7 +147,7 @@ class DodajVaucerPage  extends React.Component{
     }
 
     handleClickSave(rowData){
-        var vaucerId=rowData.vaucerId;
+        let vaucerId=rowData.vaucerId;
         const db = fire.firestore();
         db.collection("AktivniNeiskorisceniVauceri").doc(rowData.vaucerId).set({  
             password: rowData.vaucerId                    

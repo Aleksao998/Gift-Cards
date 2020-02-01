@@ -15,3 +15,8 @@ import FrontMenuBar from "./components/navigation";
 
 
 ReactDOM.render(<FrontMenuBar/>, document.getElementById('app'))
+/*
+if (module.hot) {
+       module.hot.accept()
+     }
+*/
