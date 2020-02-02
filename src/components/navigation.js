@@ -42,6 +42,9 @@ class FrontMenuBar  extends React.Component{
             }
          });
     }
+    componentWillUnmount(){
+        fire.auth().signOut();
+    }
 
     render(){
         return(

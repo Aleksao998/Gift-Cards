@@ -7,6 +7,9 @@ import MaterialTable from 'material-table';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
+import { css } from "@emotion/core";
+import BeatLoader from "react-spinners/BeatLoader";
+
 import { forwardRef } from 'react';
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
@@ -25,6 +28,12 @@ import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 
 
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
+
 class DodajVaucerPage  extends React.Component{
     constructor(props){
         super(props);
@@ -39,10 +48,17 @@ class DodajVaucerPage  extends React.Component{
             index:0,
             vaucerLista: [],
             qrId:"12",
+            loading: true,
+            visibility:""
         }
+    }
+    removeLoader(){
+        this.setState({loading:false,
+                       visibility:"hidden"})
     }
     componentDidMount(){
         this.getAllVaucer();
+        setTimeout(() => {this.removeLoader()}, 2000);
     }
     handleChange(e){
         this.setState ({ number: e.target.value })
@@ -120,7 +136,7 @@ class DodajVaucerPage  extends React.Component{
                 }))
             }.bind(this));
         }.bind(this));
-    
+        
         
        
     }
@@ -193,7 +209,16 @@ class DodajVaucerPage  extends React.Component{
           
         return(
             <div>
-            
+            <div className="loadingScreen" style={{visibility:this.state.visibility}}>
+            <div className="spinner">
+                <BeatLoader
+                css={override}
+                size={18}
+                color={"#123abc"}
+                loading={this.state.loading}
+                />
+            </div>
+            </div>
                 <div className="AddVaucerFormInput">
                     <input  onChange={this.handleChange} id="numberInput" type="number" name="number"></input>
                 </div> 
