@@ -11,7 +11,20 @@ body{
 .m-t-10{
     margin-top: 5rem!important;
 }
-
+.m-b-05{
+    margin-bottom: 0.5rem!important;
+}
 .hidden{
     display: none;
+}
+
+.error{
+    font-size: 0.8rem;
+    padding: 0.2rem;
+    color: #ba3939;
+    background: #ffe0e0;
+    border: 1px solid #a33a3a; 
+}
+.MuiPaper-elevation2 {
+    box-shadow: none!important;
 }

@@ -1,0 +1,28 @@
+@import "../../styles/base/colors";
+.QrScannerButton {
+    background-color:$buttonGreen; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 12px 16px; /* Some padding */
+    font-size: 16px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+  }
+
+  .dashboardQRButton{
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+.dashboardQRButtonCamera{
+    margin-top: 6rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+.Collapsible{
+    background-color: $darkBlue;
+    padding-top: 0.5rem;
+    padding-bottom: 0.1rem;
+    color:#ffff;
+    text-align: center;
+    margin-bottom: 0.2rem;
+}

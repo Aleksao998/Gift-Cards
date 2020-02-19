@@ -1,14 +1,18 @@
 import React from "react";
 import {Router, Route, Switch, Link, NavLink} from "react-router-dom";
-import RegistrationPage from "./registrationPage";
-import LoginPage from "./loginPage";
-import createHistory from "history/createBrowserHistory";
-import Dashboard from "./dashboardPage";
-import DodajVaucerPage from "./dodajVaucerPage";
-import IzvestajPage from "./izvestajPage";
-import NotFoundPage from "./notFoundPage";
-import Header from "./header";
-import fire from "../firebase/firebase";
+import RegistrationPage from "../components/registrationPage/registrationPage";
+import LoginPage from "../components/loginPage/loginPage";
+import { createBrowserHistory } from 'history'
+import Dashboard from "../components/dashboardPage/dashboardPage";
+import DodajVaucerPage from "../components/addGiftCardPage/addGiftCardPage";
+import IzvestajPage from "../components/statisticPage/statisticPage";
+import NotFoundPage from "../components/notFoundPage/notFoundPage";
+import Header from "../components/header/header";
+import UnUseVaucer from "../components/UnUsedCouponsPage/UnUsedCouponsPage"
+
+
+
+import {fire} from "../firebase/firebase";
 
 
 
@@ -18,7 +22,7 @@ import fire from "../firebase/firebase";
 
 
 
-const history = createHistory();
+const history = createBrowserHistory();
 class FrontMenuBar  extends React.Component{
     constructor(props){
         super(props);
@@ -54,6 +58,7 @@ class FrontMenuBar  extends React.Component{
             {(window.location.pathname == '/' ||  
               window.location.pathname == '/dodajVaucer' ||
               window.location.pathname == '/registration' ||
+              window.location.pathname == '/neaktivniVauceri' ||
               window.location.pathname == '/izvestaj') 
               ? <Header authenticated={this.state.authenticated}/>
               : null
@@ -69,6 +74,7 @@ class FrontMenuBar  extends React.Component{
                     
                     <Route path="/registration" component={() =><RegistrationPage history={history}/>}/>
                     <Route path="/dodajVaucer" component={DodajVaucerPage}/>
+                    <Route path="/neaktivniVauceri" component={UnUseVaucer}/>
                     <Route path="/izvestaj" component={IzvestajPage}/>
                     <Route component={NotFoundPage}/>
                 </Switch>

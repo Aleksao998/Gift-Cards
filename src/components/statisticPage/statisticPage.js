@@ -20,7 +20,7 @@ import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 
 
-import fire from "../firebase/firebase";
+import {fire} from "../../firebase/firebase";
 import database from 'firebase';
 class IzvestajPage  extends React.Component{
     constructor(props){

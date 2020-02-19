@@ -9,6 +9,15 @@ var firebaseConfig = {
     appId: "1:487641410751:web:1cfc1d59d4092cbd6e6a0a"
   };
 
-  const fire=firebase.initializeApp(firebaseConfig);
-  export default fire;
+  export const fire=firebase.initializeApp(firebaseConfig);
+
+
+  export function deleteDocument(collection, document){
+    const db = fire.firestore();
+    db.collection(collection).doc(document).delete().then(function() {
+        console.log("Document successfully deleted!");
+    }).catch(function(error) {
+        console.error("Error removing document: ", error);
+    });
+  };
  

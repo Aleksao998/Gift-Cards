@@ -1,7 +1,7 @@
 import React from "react";
 
-import LoginForm from "./loginComponent/loginForm";
-import Logo from "./loginComponent/logo";
+import LoginForm from "./loginForm/loginForm";
+import Logo from "./logo/logo";
 
 
 const LoginPage = ({history}) => {
